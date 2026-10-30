@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harrison Prochnow | Computer Engineering Portfolio</title>
+  <meta name="description" content="Projects by Harrison Prochnow, a computer engineering student at UW–Madison working on robot software, PCB design, electrical systems, and controls.">
+  <meta name="theme-color" content="#F2F3EF">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232342D6'/><text x='16' y='23' font-size='18' font-weight='800' text-anchor='middle' fill='white' font-family='Arial,sans-serif'>HP</text></svg>">
+  <link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="#top">Harrison Prochnow</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#swerve">Swerve Bot</a></li>
+          <li><a href="#bmu">Battery Unit</a></li>
+          <li><a href="#test-board">Test Board</a></li>
+          <li><a href="#io-architecture">Interface Structure</a></li>
+          <li><a href="#keyboard">Keyboard</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="top" aria-labelledby="name">
+      <h1 id="name"><span>Harrison</span> <span>Prochnow</span></h1>
+      <div class="hero-body">
+        <div class="hero-text">
+          <p class="role">I build robot software, circuit boards, and control systems.</p>
+          <p class="lede">I'm a computer engineering student at UW–Madison with hands-on experience in robotics software, PCB design, electrical systems, and controls. I've led student engineering teams and work across hardware and software, which is what the projects below show.</p>
+          <ul class="links">
+            <li><a href="https://github.com/HarryOTO" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/harrison-prochnow-303106436/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:hprochnow2@outlook.com">hprochnow2@outlook.com</a></li>
+          </ul>
+        </div>
+        <dl class="spec">
+          <div class="spec-row"><dt>University</dt><dd>University of Wisconsin–Madison, College of Engineering</dd></div>
+          <div class="spec-row"><dt>Degree</dt><dd>B.S. Computer Engineering, expected May 2029</dd></div>
+          <div class="spec-row"><dt>GPA</dt><dd>4.0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="block wrap" id="projects" aria-labelledby="projects-title">
+      <h2 class="block-title" id="projects-title">Projects</h2>
+      <p class="project-lede">Five projects, from a robot drivetrain to a circuit board for a competition robot. Each one covers what I built, what I used, and how it works.</p>
+      <ul class="index">
+        <li><a href="#swerve"><span class="index-name">Mini Swerve Bot</span><span class="index-desc">A differential swerve robot and the ESP32 code that drives it.</span></a></li>
+        <li><a href="#bmu"><span class="index-name">Battery Management Unit</span><span class="index-desc">A hot-swappable, telemetry-enabled board for Wisconsin Robotics.</span></a></li>
+        <li><a href="#test-board"><span class="index-name">Electronics Test Board</span><span class="index-desc">A bench board for PID tuning mechanisms off the robot.</span></a></li>
+        <li><a href="#io-architecture"><span class="index-name">Interface Structure</span><span class="index-desc">The 2024 FRC 930 robot code, built to run in simulation and on hardware.</span></a></li>
+        <li><a href="#keyboard"><span class="index-name">Tunable Keyboard</span><span class="index-desc">A custom PCB with per-key tuning, designed and assembled by me.</span></a></li>
+      </ul>
+    </section>
+
+    <section class="block wrap" id="swerve" aria-labelledby="swerve-title">
+      <h2 class="block-title" id="swerve-title">Mini Swerve Bot</h2>
+      <p class="project-lede">A 6 in × 6 in differential swerve-drive robot, with a C++ program I wrote to run it on an ESP32.</p>
+      <div class="project has-figs">
+        <div class="project-text">
+          <dl class="spec">
+            <div class="spec-row"><dt>Built with</dt><dd>ESP32, DC130 motors, DRV8833 motor controllers, AS5600 encoders</dd></div>
+            <div class="spec-row"><dt>Software</dt><dd>C++ with PlatformIO</dd></div>
+            <div class="spec-row"><dt>Code</dt><dd><a href="https://github.com/HarryOTO/mini-swerve-bot" target="_blank" rel="noopener">github.com/HarryOTO/mini-swerve-bot</a></dd></div>
+          </dl>
+          <section class="sub">
+            <h3>How the module works</h3>
+            <p>A swerve drive steers every wheel on its own, so the robot can travel in any direction while facing any other. This robot uses a differential design: two motors work together to spin the wheel and to turn the module.</p>
+          </section>
+          <section class="sub">
+            <h3>Hardware and software</h3>
+            <p>The DC130 motors are driven through DRV8833 motor controllers, and AS5600 encoders provide position feedback. The ESP32 program ties these parts together. Fig. 1 shows the CAD for the module, and Fig. 2 shows the breadboard I used to test the electronics.</p>
+          </section>
+        </div>
+        <div class="figs">
+          <figure>
+            <img src="assets/img/swerve-cad.jpg" width="1200" height="826" loading="lazy" alt="CAD render of the differential swerve module in Onshape, with a blue wheel on top of a gray frame and red spacers on a dark base plate.">
+            <figcaption><span class="fig-no">Fig. 1</span> CAD of the differential swerve module.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/swerve-breadboard.jpg" width="1200" height="767" loading="lazy" alt="Breadboard holding an ESP32, a motor driver, two small DC motors, and a white encoder board connected with red, black, yellow, and green wires.">
+            <figcaption><span class="fig-no">Fig. 2</span> Breadboard for testing the differential swerve module.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="bmu" aria-labelledby="bmu-title">
+      <h2 class="block-title" id="bmu-title">Battery Management Unit</h2>
+      <p class="project-lede">A hot-swappable Battery Management Unit with telemetry for the Wisconsin Robotics competition robot.</p>
+      <div class="project has-figs">
+        <div class="project-text">
+          <dl class="spec">
+            <div class="spec-row"><dt>Team</dt><dd>Wisconsin Robotics, electrical team</dd></div>
+            <div class="spec-row"><dt>Built with</dt><dd>Altium Designer</dd></div>
+            <div class="spec-row"><dt>Controller</dt><dd>TI LM74910-Q1, one per battery input</dd></div>
+            <div class="spec-row"><dt>Parts cost</dt><dd>About $53 per board. <a href="https://docs.google.com/spreadsheets/d/1AXufGrs4Uanq8iBpV5mn7UzWnG2m5hfJtEWj7_aRVg0/edit?gid=0#gid=0" target="_blank" rel="noopener">Full bill of materials</a></dd></div>
+          </dl>
+          <section class="sub">
+            <h3>What it does</h3>
+            <p>Each battery input runs through an ORing controller that drives two N-channel MOSFETs. The controller acts as an ideal diode, and it also protects against reverse connection, overvoltage, and overcurrent. Two inputs feed one shared output, so one battery can be swapped while the other keeps the robot powered.</p>
+          </section>
+          <section class="sub">
+            <h3>Choosing an approach</h3>
+            <p>I started by sketching four ways to decide which battery powers the load: a manual toggle switch, a microcontroller, hardware logic built from op amps, and a dedicated BMS controller chip for the power path. Fig. 3 redraws that sketch. The final board uses a dedicated controller on each battery input, with a dual op amp, a dual comparator, and a 3.3 V linear regulator alongside.</p>
+          </section>
+          <section class="sub">
+            <h3>Choosing capacitors</h3>
+            <p>Ceramic capacitors can lose capacitance under DC bias. The 430 pF capacitors are C0G, the 0.1 µF and 0.33 µF capacitors are X7R, and most of the small parts are 0402 to save board space.</p>
+          </section>
+        </div>
+        <div class="figs">
+          <figure>
+            <svg class="diagram" viewBox="0 0 440 370" role="img" aria-labelledby="dg-title dg-desc">
+              <title id="dg-title">Dual-battery power path concept</title>
+              <desc id="dg-desc">Battery 1 and Battery 2 each feed a MOSFET switch and a diode, and the two paths join at one rail that powers the load, an IMU and a buck converter. An MCU, powered from a supplementary battery through a buck converter or LDO, controls both switches over GPIO.</desc>
+              <rect class="box" x="145" y="10" width="150" height="44"/>
+              <text x="220" y="29">Supplementary</text><text x="220" y="45">battery</text>
+              <path class="wire" d="M220 54V76"/>
+              <rect class="box" x="165" y="76" width="110" height="30"/>
+              <text x="220" y="96">Buck / LDO</text>
+              <path class="wire" d="M220 106V130"/>
+              <rect class="mcu" x="165" y="130" width="110" height="44"/>
+              <text x="220" y="157">MCU</text>
+
+              <rect class="box" x="20" y="10" width="90" height="34"/>
+              <text x="65" y="32">Battery 1</text>
+              <rect class="box" x="330" y="10" width="90" height="34"/>
+              <text x="375" y="32">Battery 2</text>
+              <path class="wire" d="M65 44V130M375 44V130"/>
+
+              <rect class="box" x="20" y="130" width="90" height="44"/>
+              <text x="65" y="149">MOSFET</text><text x="65" y="165">switch</text>
+              <rect class="box" x="330" y="130" width="90" height="44"/>
+              <text x="375" y="149">MOSFET</text><text x="375" y="165">switch</text>
+
+              <path class="ctrl" d="M165 152H110M275 152H330"/>
+              <text class="lbl-ctrl" x="137" y="144">GPIO</text>
+              <text class="lbl-ctrl" x="302" y="144">GPIO</text>
+
+              <path class="wire" d="M65 174V196M375 174V196"/>
+              <path class="wire" d="M57 196H73L65 212ZM367 196H383L375 212Z"/>
+              <path class="wire" d="M57 212H73M367 212H383M65 212V250H375V212"/>
+              <circle class="dot" cx="220" cy="250" r="3.5"/>
+              <path class="wire" d="M220 250V282"/>
+              <rect class="box" x="150" y="282" width="140" height="50"/>
+              <text x="220" y="302">Load</text>
+              <text class="small" x="220" y="320">IMU, buck converter</text>
+              <path class="wire" d="M220 332V346M204 346H236M211 352H229M217 358H223"/>
+            </svg>
+            <figcaption><span class="fig-no">Fig. 3</span> Early concept: two batteries share one load, and an MCU controls the switches.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <section class="sub parts-sub">
+        <h3>Key parts</h3>
+        <p>The bill of materials has 28 line items. These are the ones that define the design.</p>
+        <div class="table-wrap">
+          <table class="parts">
+            <thead>
+              <tr><th scope="col">Function</th><th scope="col">Part</th><th scope="col">Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">ORing and protection</th><td>LM74910-Q1, Texas Instruments (2)</td><td>Ideal-diode ORing with reverse, overvoltage, and overcurrent protection and load disconnect. Drives two external N-channel MOSFETs.</td></tr>
+              <tr><th scope="row">Power switches</th><td>BSC034N10LS5, Infineon (4)</td><td>100 V N-channel MOSFETs, two per battery input.</td></tr>
+              <tr><th scope="row">Current sensing</th><td>RL1632T4F-R002 (2)</td><td>2 mΩ, 1 W shunt resistors, one per battery input.</td></tr>
+              <tr><th scope="row">Surge and diode protection</th><td>SMCJ36A (2), STPS5045SG (2)</td><td>A 36 V TVS diode and a 45 V, 50 A Schottky diode, one of each per battery input.</td></tr>
+              <tr><th scope="row">Output capacitance</th><td>ECA-1HM471 (8)</td><td>470 µF, 50 V aluminum electrolytic capacitors.</td></tr>
+              <tr><th scope="row">Monitoring</th><td>OPA2316-Q1 (1), TLV7022 (1)</td><td>A dual op amp and a dual comparator.</td></tr>
+              <tr><th scope="row">Logic supply</th><td>NJW4182F33 (1)</td><td>3.3 V linear regulator, 100 mA.</td></tr>
+              <tr><th scope="row">Status</th><td>HSMG-C190 (2), HSMH-H190 (2)</td><td>One green and one red LED per battery input.</td></tr>
+              <tr><th scope="row">Precision resistors</th><td>0.1% thin film, 0402</td><td>Values include 100 kΩ, 30 kΩ, 9.1 kΩ, 2.46 kΩ, and 1.96 kΩ.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="block wrap" id="test-board" aria-labelledby="test-board-title">
+      <h2 class="block-title" id="test-board-title">Electronics Test Board</h2>
+      <p class="project-lede">A test board for PID tuning complex mechanisms in software without mounting them on the competition robot.</p>
+      <div class="project has-figs">
+        <div class="project-text">
+          <dl class="spec">
+            <div class="spec-row"><dt>Built for</dt><dd>FIRST Robotics Competition</dd></div>
+            <div class="spec-row"><dt>Used with</dt><dd>Shooter mechanism (Fig. 4)</dd></div>
+          </dl>
+          <section class="sub">
+            <h3>The problem</h3>
+            <p>Tuning a mechanism usually means mounting it on the competition robot, which ties software work to the mechanical build.</p>
+          </section>
+          <section class="sub">
+            <h3>What I built</h3>
+            <p>A board that connects a mechanism directly, so it can be tuned on a bench while the rest of the robot is still being built. Mechanism work and software work happen in parallel.</p>
+          </section>
+        </div>
+        <div class="figs">
+          <figure>
+            <img src="assets/img/test-board.jpg" width="755" height="944" loading="lazy" alt="A shooter mechanism with a red wheel wired to a motor controller board on a wooden panel, sitting on a shop floor next to aluminum beams and a yellow foam ball.">
+            <figcaption><span class="fig-no">Fig. 4</span> Electronics test board with a shooter mechanism attached.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="io-architecture" aria-labelledby="io-title">
+      <h2 class="block-title" id="io-title">Interface Structure</h2>
+      <p class="project-lede">I was one of the largest contributors to FRC Team 930's 2024 robot code, and I redesigned it around an IO architecture.</p>
+      <div class="project">
+        <div class="project-text">
+          <dl class="spec">
+            <div class="spec-row"><dt>Team</dt><dd>FRC Team 930, Mukwonago BEARs</dd></div>
+            <div class="spec-row"><dt>Season</dt><dd>2024</dd></div>
+            <div class="spec-row"><dt>Goal</dt><dd>Run the same robot code in simulation and on hardware</dd></div>
+            <div class="spec-row"><dt>Code</dt><dd><a href="https://github.com/FRC930/Robot2024" target="_blank" rel="noopener">github.com/FRC930/Robot2024</a></dd></div>
+          </dl>
+          <section class="sub">
+            <h3>The idea</h3>
+            <p>In an IO architecture, robot logic talks to motors and sensors through an interface instead of calling hardware code directly. One implementation of that interface talks to the real robot, and another runs in simulation.</p>
+          </section>
+          <section class="sub">
+            <h3>The result</h3>
+            <p>The codebase can run in software simulation alongside robot hardware, which made testing and tuning faster.</p>
+          </section>
+          <section class="sub">
+            <h3>The season</h3>
+            <p>This code ran the robot that won the Wisconsin Regional and competed in the Curie Division at the 2024 FIRST Championship. The team received the Innovation in Control Award there.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="keyboard" aria-labelledby="keyboard-title">
+      <h2 class="block-title" id="keyboard-title">Tunable Keyboard</h2>
+      <p class="project-lede">A custom PCB I designed, ordered, and assembled, with potentiometers that tune each key independently.</p>
+      <div class="project has-figs">
+        <div class="project-text">
+          <dl class="spec">
+            <div class="spec-row"><dt>Built with</dt><dd>EasyEDA, potentiometers</dd></div>
+          </dl>
+          <section class="sub">
+            <h3>From design to board</h3>
+            <p>I laid out the board in EasyEDA, ordered it, and assembled it by hand. Fig. 5 shows the finished board.</p>
+          </section>
+          <section class="sub">
+            <h3>Tuning each key</h3>
+            <p>Potentiometers on the board let each key be tuned independently of the others.</p>
+          </section>
+        </div>
+        <div class="figs">
+          <figure>
+            <img src="assets/img/keyboard-pcb.jpg" width="1000" height="1333" loading="lazy" alt="Green circuit board with two blue potentiometers, two push buttons, a black buzzer, and a few jumper wires, lying on a notebook.">
+            <figcaption><span class="fig-no">Fig. 5</span> PCB for the tunable keyboard project.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="contact" aria-labelledby="contact-title">
+      <h2 class="block-title" id="contact-title">Contact</h2>
+      <p class="project-lede">My experience, teams, and skills are on my resume. Email is the quickest way to reach me.</p>
+      <ul class="links">
+        <li><a href="mailto:hprochnow2@outlook.com">hprochnow2@outlook.com</a></li>
+        <li><a href="https://github.com/HarryOTO" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/harrison-prochnow-303106436/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>Harrison Prochnow, University of Wisconsin–Madison. © 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
